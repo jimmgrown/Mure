@@ -8,15 +8,34 @@
 
 import UIKit
 import CoreData
+import RealmSwift
+
+extension UIViewController {
+    static func instance() -> Self {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: self)) as! Self
+        return viewController
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if UserDefaults.standard.value(forKey: "SelectedGenreArray") == nil {
+            window?.rootViewController = GenreViewController.instance()
+        } else {
+            window?.rootViewController = GenreViewController.instance()
+        }
+        
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1, migrationBlock: nil)
+        
         return true
     }
 

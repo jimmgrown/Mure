@@ -6,30 +6,57 @@
 //  Copyright © 2019 Ilya. All rights reserved.
 //
 
-class Card {
+import RealmSwift
+
+class Card: Object {
     
     static var shared = [Card]()
     
-    var idCard: String?
-    var name: String?
-    var description: String?
-    var imageString: String?
-    var likes: String?
-    var dislikes: String?
-    var audioString: String?
-//    var iconName: String?
+    var id: String!
+    var genre: String!
+    var name: String!
+    var desc: String!
+    var imageString: String!
+    var likes: Int!
+    var dislikes: Int!
+    var audioString: String!
+    var isLiked: Bool = false
     
-    init(data: JSON) {
-        self.idCard = data["idCard"] as! String?
-        self.name = data["name"] as! String?
-        self.description = data["description"] as! String?
-        self.imageString = data["imageString"] as! String?
-        self.likes = data["likes"] as! String?
-        self.dislikes = data["dislikes"] as! String?
-        self.audioString = data["audioString"] as! String?
-//        self.iconName   = data["iconName"] as! String?
+    convenience init(data: JSON, id: String) {
+        self.init()
         
-        // MARK: - Initialization
-    
+        self.id = id
+        self.genre = data["genre"] as? String
+        self.name = data["name"] as? String
+        self.desc = data["description"] as? String
+        self.imageString = data["imageString"] as? String
+        self.likes = (data["likes"] as? Int) ?? 0
+        self.dislikes = (data["dislikes"] as? Int) ?? 0
+        self.audioString = data["audioString"] as? String
+        
+        let savedCard = Card.byPrimaryKey(id)
+        self.isLiked = savedCard?.isLiked ?? false
+        
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(self, update: .all)
+        }
     }
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    static func allObject() -> [Card] {
+        let realm = try! Realm()
+        return realm.objects(Card.self).map { $0 }
+    }
+    
+    func saveObject() {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(self, update: .modified)
+        }
+    }
+    
 }

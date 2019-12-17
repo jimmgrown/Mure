@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="genreCell" id="zNy-qy-YJp" customClass="GenreCell" customModule="Mure" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jie-QM-igj">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3c-uH-fAw">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arJ-P6-KqC">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="qNK-C7-QXt"/>
+                                    <constraint firstAttribute="width" constant="120" id="qgx-BX-lYk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="arJ-P6-KqC" secondAttribute="bottom" id="2DD-Iq-oa0"/>
+                            <constraint firstItem="arJ-P6-KqC" firstAttribute="leading" secondItem="e3c-uH-fAw" secondAttribute="leading" id="47n-80-ipD"/>
+                            <constraint firstItem="arJ-P6-KqC" firstAttribute="top" secondItem="e3c-uH-fAw" secondAttribute="top" id="cdq-Uv-0W4"/>
+                            <constraint firstAttribute="trailing" secondItem="arJ-P6-KqC" secondAttribute="trailing" id="gPt-zV-iYV"/>
+                        </constraints>
+                    </view>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJD-BQ-i15">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dz4-qT-Rz9">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="dark"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </visualEffectView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxR-E7-RBw">
+                        <rect key="frame" x="34.5" y="46.5" width="51.5" height="27.5"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Label">
+                                <attributes>
+                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <font key="NSFont" size="21" name="Futura-Medium"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="nJD-BQ-i15" firstAttribute="top" secondItem="Jie-QM-igj" secondAttribute="top" id="4Lx-cE-9FV"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kxR-E7-RBw" secondAttribute="trailing" constant="20" id="7If-fn-cbx"/>
+                    <constraint firstAttribute="bottom" secondItem="nJD-BQ-i15" secondAttribute="bottom" id="7t9-7W-4lC"/>
+                    <constraint firstItem="kxR-E7-RBw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jie-QM-igj" secondAttribute="leading" constant="20" id="RCX-Sq-bHA"/>
+                    <constraint firstItem="e3c-uH-fAw" firstAttribute="leading" secondItem="Jie-QM-igj" secondAttribute="leading" id="jFh-fd-m1R"/>
+                    <constraint firstAttribute="trailing" secondItem="e3c-uH-fAw" secondAttribute="trailing" id="jNX-xk-LQD"/>
+                    <constraint firstItem="kxR-E7-RBw" firstAttribute="centerY" secondItem="Jie-QM-igj" secondAttribute="centerY" id="jwv-k0-727"/>
+                    <constraint firstAttribute="bottom" secondItem="e3c-uH-fAw" secondAttribute="bottom" id="mOE-0H-0IN"/>
+                    <constraint firstItem="nJD-BQ-i15" firstAttribute="leading" secondItem="Jie-QM-igj" secondAttribute="leading" id="n5f-aH-j8p"/>
+                    <constraint firstAttribute="trailing" secondItem="nJD-BQ-i15" secondAttribute="trailing" id="sSO-ym-UNv"/>
+                    <constraint firstItem="kxR-E7-RBw" firstAttribute="centerX" secondItem="Jie-QM-igj" secondAttribute="centerX" id="tpE-hY-SkP"/>
+                    <constraint firstItem="e3c-uH-fAw" firstAttribute="top" secondItem="Jie-QM-igj" secondAttribute="top" id="wX7-m1-L3e"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="120" height="120"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="genreBackground" destination="e3c-uH-fAw" id="mRb-ah-B2c"/>
+                <outlet property="genreImage" destination="arJ-P6-KqC" id="uas-be-I9v"/>
+                <outlet property="genreLabel" destination="kxR-E7-RBw" id="IkF-DN-aXU"/>
+                <outlet property="imageHeight" destination="qNK-C7-QXt" id="DMU-85-XJI"/>
+                <outlet property="imageWidth" destination="qgx-BX-lYk" id="Mcd-wm-dZB"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="153"/>
+        </collectionViewCell>
+    </objects>
+</document>
